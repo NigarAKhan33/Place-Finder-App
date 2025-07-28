@@ -1,0 +1,12 @@
+.loader-container{
+    text-align: center;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    left: 50%;
+    ion-spinner{
+        width:200px;
+        height:200px;
+    }
+}

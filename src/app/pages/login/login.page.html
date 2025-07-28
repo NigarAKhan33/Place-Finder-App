@@ -1,0 +1,31 @@
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-card class="login-card">
+    <ion-card-header>
+      <ion-card-subtitle>Place Finder Login</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <!-- <div class="ion-text-center">
+        <img src="assets/imgs/place-icon.png">
+      </div> -->
+
+      <ion-list>
+        <ion-item>
+          <ion-input type="text" label="Username" labelPlacement="floating" placeholder="Enter username"
+            [(ngModel)]="un"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="password" label="Password" labelPlacement="floating" placeholder="Enter password"
+            [(ngModel)]="pw"></ion-input>
+        </ion-item>
+      </ion-list>
+
+      <ion-button color="tertiary" expand="block" class="ion-margin-top" (click)="loginClick()" [disabled]="!un || !pw">
+        <!-- <ion-icon slot="end" name="chevron-forward"></ion-icon> -->
+        Login
+      </ion-button>
+
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

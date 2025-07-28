@@ -1,0 +1,51 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Search a place</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="logOutClick()">Logout</ion-button>
+      <ion-button>
+        <ion-icon slot="icon-only" [name]="isNetworkConnected ? 'wifi' : 'airplane'"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-item class="ion-margin-top">
+    <ion-select label="Nearby" label-placement="fixed" placeholder="Please select" [(ngModel)]="searchFilter.type">
+      <ion-select-option value="restaurant">Restaurant</ion-select-option>
+      <ion-select-option value="atm">ATM</ion-select-option>
+      <ion-select-option value="hospital">Hospital</ion-select-option>
+      <ion-select-option value="school">School</ion-select-option>
+      <ion-select-option value="movie_theater">Movie theater</ion-select-option>
+      <ion-select-option value="cafe">Cafe</ion-select-option>
+      <ion-select-option value="drugstore">Drug store</ion-select-option>
+      <ion-select-option value="supermarket">Supermarket</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item class="ion-margin-top">
+    <ion-select label="Distance" label-placement="fixed" placeholder="Please select"
+      [(ngModel)]="searchFilter.distance">
+      <ion-select-option value="500">500 m</ion-select-option>
+      <ion-select-option value="2000">2 Kms</ion-select-option>
+      <ion-select-option value="10000">10Kms</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-button color="tertiary" expand="block" class="ion-margin-top" (click)="searchClick()" [disabled]="false">
+    <ion-icon slot="end" name="search"></ion-icon>
+    Search places
+  </ion-button>
+
+  <ion-list class="ion-margin-top" *ngIf="searchResults.length">
+    <ion-item *ngFor="let result of searchResults">
+      <ion-label>
+        <h2>{{result.name}}</h2>
+        <p>{{result.vicinity}}</p>
+      </ion-label>
+      <ion-note slot="end">{{result.rating}}</ion-note>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
